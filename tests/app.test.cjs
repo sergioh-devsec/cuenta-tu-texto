@@ -1,0 +1,1 @@
+const {test}=require('node:test'),a=require('node:assert/strict'),{count}=require('../app.js');test('Español, vacíos, Unicode y límites',()=>{a.deepEqual(count('Hola, ¿qué tal?'),{characters:15,words:3,minutes:1});a.equal(count('').words,0);a.equal(count('🙂').characters,1);a.equal(count('uno '.repeat(201)).minutes,2);a.throws(()=>count('x'.repeat(50001)));});
